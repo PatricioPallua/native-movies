@@ -1,40 +1,25 @@
-import { View, Text } from "react-native";
-import { useState, useEffect } from "react";
-import LoaderKit from 'react-native-loader-kit'
-import axios from "axios";
+import { ScrollView, View, Text } from "react-native";
+import Card from "./Card";
 
-export default function TopMoviesCarrousel () {
-    // 3204f2e85cmsh6e9ee1ce458b15fp11e41cjsn7debf6d27af2
-    const [topMovies, setTopMovies] = useState([])
+export default function TopMoviesCarrousel({ Movies }){
 
-    useEffect(() => {
-        console.log("ENTRAMOS ACA")
-        const options = {
-            method: 'GET',
-            url: 'https://moviesminidatabase.p.rapidapi.com/movie/order/byPopularity/',
-            headers: {
-              'X-RapidAPI-Key': 'b96ec2822cmshfee9322531e4280p1123c2jsn7217cbcd566f',
-              'X-RapidAPI-Host': 'moviesminidatabase.p.rapidapi.com'
-            }
-        };
-          
-        axios.request(options)
-        .then(res => {
-            console.log(res.data.results)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }, [])
+    const renderMovies = Movies.map((movie, index) => (
+        <Card key={index} Movie={movie}></Card>
+    ));
 
-    return (
-        <View>
-            {
-                topMovies.length <= 0 ?                           
-                    <Text> Cargando... </Text>
-                    :
-                    <Text> topMovies </Text>
-            }
-        </View>
+    return(
+            <View style={{ flex:1, backgroundColor: "white", paddingTop: 20, marginTop: 20}} >
+                <Text style={{ fontSize: 25, fontWeight: "700", paddingHorizontal: 20 }}>
+                    Top Movies
+                </Text>
+
+                <View style={{ height:300, marginTop: 20 }}>
+                    <ScrollView
+                        horizontal={true}
+                    >
+                        { renderMovies }
+                    </ScrollView>
+                </View>
+            </View>
     )
-}
+} 

@@ -1,12 +1,13 @@
-import { View, Text } from "react-native";
-import TopMoviesCarrousel from "../components/TopMoviesCarrousel";
+import { View } from "react-native";
+import TopMoviesCarrouselContainer from "../components/TopMoviesCarrouselContainer";
+import NavBar from "../components/NavBar";
 
 export default function Main() {
 
     return (
         <View>
-            <Text> Main Screen </Text>
-            <TopMoviesCarrousel />
+            <NavBar />
+            <TopMoviesCarrouselContainer />
         </View>
     )
 }
