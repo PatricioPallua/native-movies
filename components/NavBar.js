@@ -12,16 +12,19 @@ export default function NavBar() {
 
 const styles = StyleSheet.create({
   navBar: {
+    flex: 1,
     margin: 10,
     backgroundColor: '#3498db', 
-    height: 50,
+    width: "100%",
+    width: 500,
+    height: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   navBarTitle: {
-    color: '#fff', // Text color
+    color: '#fff', 
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
 });
 

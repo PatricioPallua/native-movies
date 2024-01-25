@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       borderRadius: 8,
       margin: 16,
+      width: 150,
       overflow: 'hidden', // Ensure the borderRadius applies to the image
       shadowColor: '#000',
       shadowOffset: {
@@ -64,7 +65,8 @@ const styles = StyleSheet.create({
     },
     cardImage: {
       width: '100%',
-      height: 200,
+      height: 120,
+      width: 120,
       borderRadius: 8,
     },
   });

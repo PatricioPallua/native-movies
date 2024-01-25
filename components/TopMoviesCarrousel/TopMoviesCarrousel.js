@@ -1,5 +1,5 @@
 import { ScrollView, View, Text } from "react-native";
-import Card from "./Card";
+import Card from "../Card";
 
 export default function TopMoviesCarrousel({ Movies }){
 
@@ -13,7 +13,7 @@ export default function TopMoviesCarrousel({ Movies }){
                     Top Movies
                 </Text>
 
-                <View style={{ height:300, marginTop: 20 }}>
+                <View style={{ height:250, marginTop: 20 }}>
                     <ScrollView
                         horizontal={true}
                     >

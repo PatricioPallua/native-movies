@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import { useState, useEffect } from "react";
 import LoaderKit from 'react-native-loader-kit'
 import axios from "axios";
-import Card from "./Card";
+import Card from "../Card";
 import TopMoviesCarrousel from "./TopMoviesCarrousel";
 
 export default function TopMoviesCarrouselContainer () {
@@ -21,16 +21,12 @@ export default function TopMoviesCarrouselContainer () {
         axios.request(options)
         .then(res => {
             respuesta = res.data.results 
-            setTopMovies(respuesta.slice(0,10))
+            setTopMovies(respuesta)
         })
         .catch(err => {
             console.log(err)
         })
     }, [])
-
-    const renderMovies = topMovies.map((movie, index) => (
-        <Card key={index} Movie={movie}></Card>
-    ));
 
     return (
         <View>
