@@ -8,7 +8,6 @@ export default function Card({ Movie }) {
     const[loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        console.log("ID:", Movie.imdb_id)
         const options = {
             method: 'GET',
             url: 'https://moviesminidatabase.p.rapidapi.com/movie/id/' + Movie.imdb_id + "/",

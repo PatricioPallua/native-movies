@@ -1,11 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Main from './screens/main';
+import TabNavigator from './Navigation';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Main> </Main>
-    </View>
+    <TabNavigator />
   );
 }
 

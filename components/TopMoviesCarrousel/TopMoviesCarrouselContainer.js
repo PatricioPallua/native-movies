@@ -1,8 +1,6 @@
 import { View, Text } from "react-native";
 import { useState, useEffect } from "react";
-import LoaderKit from 'react-native-loader-kit'
 import axios from "axios";
-import Card from "../Card";
 import TopMoviesCarrousel from "./TopMoviesCarrousel";
 
 export default function TopMoviesCarrouselContainer () {

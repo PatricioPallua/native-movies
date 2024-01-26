@@ -1,17 +1,14 @@
-import { View, StyleSheet, ScrollView, Text } from "react-native";
-import TopMoviesCarrouselContainer from "../components/TopMoviesCarrousel/TopMoviesCarrouselContainer";
-import NavBar from "../components/NavBar";
+import { StyleSheet, View, ScrollView } from "react-native";
 import SearchMoviesContainer from "../components/SearchMovies/SearchMoviesContainer";
 
-export default function Main() {
+
+export default function SearchMoviesScreen() {
 
     return (
-        <View>
+        <View style={styles.viewContainer}>
             <ScrollView style={styles.container}>
-                <NavBar />
                 <View style={styles.content}>
                     <SearchMoviesContainer />
-                    <TopMoviesCarrouselContainer />
                 </View>
             </ScrollView>
         </View>
@@ -19,11 +16,17 @@ export default function Main() {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    scrollContainer: {
       flex: 1,
     },
     content: {
-      padding: 16,
+      padding: 8,
     },
+    viewContainer: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 5
+      },
   });
-  

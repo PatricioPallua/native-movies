@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#3498db', 
-        padding: 10,
+        padding: 5,
         flexDirection: 'row',
         alignItems: 'center',
         width: "90%",
-        paddingHorizontal: 16,
-        marginHorizontal: 10
+        paddingHorizontal: 5,
+        marginHorizontal: 1
     }
 });
