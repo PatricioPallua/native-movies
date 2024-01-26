@@ -7,6 +7,8 @@ export default function Card({ Movie }) {
     const[movieDetail, setMovieDetaile] = useState("")
     const[loaded, setLoaded] = useState(false)
 
+    console.log("MOVIE!!!! ", Movie)
+
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
       borderRadius: 8,
       margin: 16,
       width: 150,
-      overflow: 'hidden', // Ensure the borderRadius applies to the image
+      overflow: 'hidden', 
       shadowColor: '#000',
       shadowOffset: {
         width: 0,

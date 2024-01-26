@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import axios from "axios";
 import SearchMoviesInput from "./SearchMoviesInput";
-import SearchMoviesDisplay from "./SearchMoviesDisplay";
+import SearchMoviesDisplayContainer from "./SearchMoviesDisplayContainer";
 
 
 export default function SearchMoviesContainer(){
@@ -38,7 +38,7 @@ export default function SearchMoviesContainer(){
     return (
         <View>
             <SearchMoviesInput styles={styles.container} setSearch={setSearch} search={search} handleSearch={handleSearch}/>
-            <SearchMoviesDisplay Movies={moviesFound}/>
+            <SearchMoviesDisplayContainer Movies={moviesFound}/>
         </View>
     )
 }

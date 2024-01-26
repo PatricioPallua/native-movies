@@ -19,13 +19,15 @@ export default function SearchMoviesInput({ setSearch, search, handleSearch }) {
     )
 }
 const styles = StyleSheet.create({
-    container: {
-      backgroundColor: '#3498db', // Bar background color
-      padding: 10,
-      flexDirection: 'row',
-      alignItems: 'center',
-      width: '100%',
-    },
+  container: {
+    backgroundColor: '#3498db',
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    height: 60, 
+    minWidth: 350
+},
     input: {
       flex: 1,
       height: 40,
