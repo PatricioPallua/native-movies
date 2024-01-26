@@ -11,8 +11,6 @@ export default function SearchMoviesContainer(){
     const[moviesFound, setMoviesFound] = useState("")
 
     function handleSearch() {
-        console.log(search)
-
         const options = {
             method: 'GET',
             url: 'https://moviesminidatabase.p.rapidapi.com/movie/imdb_id/byTitle/' + search + "/",
@@ -26,7 +24,6 @@ export default function SearchMoviesContainer(){
           .then(res => {
                 setMoviesFound([])
                 response = res.data.results 
-                console.log(response)
                 setMoviesFound(response)
                 setSearch("")
           })

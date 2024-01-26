@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     card: {
-      flexBasis: "48%", // Adjust as needed based on your design
+      flexBasis: "48%", 
       marginBottom: 16,
       borderRadius: 8,
       borderWidth: 1,

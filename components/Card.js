@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Gif from 'react-native-gif';
 import axios from "axios";
 
 export default function Card({ Movie }) {
     const[movieDetail, setMovieDetaile] = useState("")
     const[loaded, setLoaded] = useState(false)
-
-    console.log("MOVIE!!!! ", Movie)
+    const navigation = useNavigation()
 
     useEffect(() => {
         const options = {
@@ -29,7 +29,12 @@ export default function Card({ Movie }) {
           })
     },[])
 
+    const handleCardPress = () => {
+      navigation.navigate('Detail', { movieDetail: movieDetail, movie: Movie });
+    };
+
     return (
+      <TouchableOpacity onPress={handleCardPress}>
         <View style={styles.card}>
             {
               loaded? 
@@ -46,12 +51,10 @@ export default function Card({ Movie }) {
                 />
             }
         </View>
+      </TouchableOpacity>
     )
 }
 
-
-// Styles
-// Updated Styles
 const styles = StyleSheet.create({
     card: {
       backgroundColor: '#fff',
@@ -73,8 +76,8 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       marginBottom: 8,
       padding: 16,
-      backgroundColor: '#3498db', // Background color for the title
-      color: '#fff', // Text color for the title
+      backgroundColor: '#3498db',
+      color: '#fff', 
       borderTopLeftRadius: 8,
       borderTopRightRadius: 8,
     },

@@ -7,9 +7,11 @@ import MainScreen from "./screens/MainScreen";
 import SearchMoviesScreen from "./screens/SearchMoviesScreen";
 import UserProfileScreen from "./screens/UserProfileScreen";
 import Ionicons from '@expo/vector-icons/Ionicons';
+import MovieDetailScreen from "./screens/MovieDetailScreen";
 
 const MainTab = createBottomTabNavigator()
 const HomeStack = createNativeStackNavigator()
+const SearchStack = createNativeStackNavigator()
 
 function HomeStackNavigator(){
     return(
@@ -22,8 +24,26 @@ function HomeStackNavigator(){
             />
             <HomeStack.Screen 
                 name="Detail"
+                component={MovieDetailScreen}
             />
         </HomeStack.Navigator>
+    )
+}
+
+function SearchStackNavigator(){
+    return(
+        <SearchStack.Navigator
+            initialRouteName="Search"
+        >
+            <SearchStack.Screen 
+                name="Search"
+                component={SearchMoviesScreen}
+            />
+            <SearchStack.Screen 
+                name="Detail"
+                component={MovieDetailScreen}
+            />
+        </SearchStack.Navigator>
     )
 }
 
@@ -31,31 +51,33 @@ function MyTabs(){
 
     return(
         <MainTab.Navigator
-            initialRouteName="Home"
+            initialRouteName="HomeTab"
             screenOptions={{
                 tabBarActiveTintColor: "blue"
             }}    
         >
             <MainTab.Screen 
-                name="Home" 
+                name="HomeTab" 
                 component={HomeStackNavigator} 
                 options={{
                     tabBarIcon: ({color, size}) => (
                         <Ionicons name="home" size={size} color={color} />
                     ),
+                    headerShown: false
                 }}
             /> 
             <MainTab.Screen 
-                name="Search" 
-                component={SearchMoviesScreen} 
+                name="SearchTab" 
+                component={SearchStackNavigator} 
                 options={{
                     tabBarIcon: ({color, size}) => (
                         <Ionicons name="search-sharp" size={size} color={color} />
                     ),
+                    headerShown: false,
                 }}
             />
             <MainTab.Screen 
-                name="Profile" 
+                name="ProfileTab" 
                 component={UserProfileScreen} 
                 options={{
                     tabBarIcon: ({color, size}) => (
