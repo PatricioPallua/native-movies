@@ -30,7 +30,7 @@ export default function Card({ Movie }) {
     },[])
 
     const handleCardPress = () => {
-      navigation.navigate('Detail', { movieDetail: movieDetail, movie: Movie });
+      navigation.navigate('Detail', { movieDetail: movieDetail });
     };
 
     return (
@@ -41,7 +41,7 @@ export default function Card({ Movie }) {
                 <View>
                   <Text style={styles.cardTitle}> {Movie.title} </Text>
                   <View style={{ flex: 2}}>
-                    <Image style={styles.cardImage} source={{ uri:movieDetail.image_url }}/>
+                    <Image style={styles.cardImage} source={{ uri: movieDetail.image_url }}/>
                   </View>
                 </View>
               :
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
       borderRadius: 8,
       margin: 16,
       width: 150,
-      overflow: 'hidden', 
+      height: 250,
       shadowColor: '#000',
       shadowOffset: {
         width: 0,
@@ -82,9 +82,10 @@ const styles = StyleSheet.create({
       borderTopRightRadius: 8,
     },
     cardImage: {
+      height: "80%",
       width: '100%',
-      height: 120,
-      width: 120,
+      aspectRatio: 16 / 9, // Adjust the aspect ratio based on your preference
       borderRadius: 8,
-    },
+      resizeMode: 'cover',
+    }
   });
