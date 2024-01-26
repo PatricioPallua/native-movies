@@ -5,10 +5,6 @@ import TopMoviesCarrousel from "../TopMoviesCarrousel/TopMoviesCarrousel";
 
 export default function SearchMoviesDisplay({ Movies }){
 
-    const renderMovies = () => {Movies.map((movie, index) => (
-        <Card key={index} Movie={movie}></Card>
-    ))}
-
     return (
         <View>
             {
@@ -17,7 +13,7 @@ export default function SearchMoviesDisplay({ Movies }){
                         <Text> Busque una pelicula  </Text>
                     </View>
                     :
-                    Movies.length > 0 ?
+                Movies.length > 0 ?
                     <View>
                         <TopMoviesCarrousel Movies={Movies} />
                     </View>

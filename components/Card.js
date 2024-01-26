@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { Text, StyleSheet, View, Image } from "react-native";
+import Gif from 'react-native-gif';
 import axios from "axios";
 
 export default function Card({ Movie }) {
     const[movieDetail, setMovieDetaile] = useState("")
+    const[loaded, setLoaded] = useState(false)
+
     useEffect(() => {
+        console.log("ID:", Movie.imdb_id)
         const options = {
             method: 'GET',
-            url: 'https://moviesminidatabase.p.rapidapi.com/movie/id/tt14318430/',
+            url: 'https://moviesminidatabase.p.rapidapi.com/movie/id/' + Movie.imdb_id + "/",
             headers: {
               'X-RapidAPI-Key': 'b96ec2822cmshfee9322531e4280p1123c2jsn7217cbcd566f',
               'X-RapidAPI-Host': 'moviesminidatabase.p.rapidapi.com'
@@ -16,8 +20,8 @@ export default function Card({ Movie }) {
 
           axios.request(options)
           .then(res => {
-            console.log(res.data.results.image_url)
             setMovieDetaile(res.data.results)
+            setLoaded(true)
           })
           .catch(err => {
             console.log(err)
@@ -26,10 +30,20 @@ export default function Card({ Movie }) {
 
     return (
         <View style={styles.card}>
-            <Text style={styles.cardTitle}> {movieDetail.title} </Text>
-            <View style={{ flex: 2}}>
-                <Image style={styles.cardImage} source={{ uri:movieDetail.image_url }}/>
-            </View>
+            {
+              loaded? 
+                <View>
+                  <Text style={styles.cardTitle}> {Movie.title} </Text>
+                  <View style={{ flex: 2}}>
+                    <Image style={styles.cardImage} source={{ uri:movieDetail.image_url }}/>
+                  </View>
+                </View>
+              :
+                <Gif
+                  source={{ uri: '../../assets/loading-load.gif' }}
+                  style={styles.gif}
+                />
+            }
         </View>
     )
 }

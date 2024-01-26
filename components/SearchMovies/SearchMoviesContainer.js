@@ -24,9 +24,11 @@ export default function SearchMoviesContainer(){
 
           axios.request(options)
           .then(res => {
-              response = res.data.results 
-              setMoviesFound(response)
-              setSearch("")
+                setMoviesFound([])
+                response = res.data.results 
+                console.log(response)
+                setMoviesFound(response)
+                setSearch("")
           })
           .catch(err => {
               console.log(err)
@@ -44,7 +46,7 @@ export default function SearchMoviesContainer(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#3498db', // Bar background color
+        backgroundColor: '#3498db', 
         padding: 10,
         flexDirection: 'row',
         alignItems: 'center',
